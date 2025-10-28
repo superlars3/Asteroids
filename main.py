@@ -18,6 +18,7 @@ def main():
                 return
         screen.fill("black")
         Ship.draw(screen)
+        Ship.update(dt)
         pygame.display.flip()
         dt = gamespeed.tick(60) / 1000
 
