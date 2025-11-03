@@ -5,6 +5,7 @@ from player import *
 from asteroid import *
 from asteroidfield import *
 from shot import *
+from circleshape import *
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -47,6 +48,12 @@ def main():
             if ship.collision(sprite):
                 sys.exit("Game over!")
         dt = gamespeed.tick(60) / 1000
+
+        for sprite in asteroids:
+            for shot in shots:
+                if Shot.collision(sprite, shot):
+                    sprite.split()
+                    shot.kill()
 
 if __name__ == "__main__":
     main()
